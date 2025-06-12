@@ -212,10 +212,12 @@ function getMBTI() {
 
 function showResult() {
   const mbti = getMBTI();
-  const cid = mbtiMap[mbti] || 'ipfs://placeholder';
+  const cid = mbtiMap[mbti];
+  const imageUrl = cid ? `https://ipfs.io/ipfs/${cid}` : 'https://via.placeholder.com/200?text=No+Image';
+
   quizContent.innerHTML = `
-    <h2>My Personality Type: ${mbti}</h2>
-    <img class="result-img" src="${cid.replace('ipfs://', 'https://ipfs.io/ipfs/')}" alt="${mbti}" />
+    <h2>Your MBTI Type: ${mbti}</h2>
+    <img class="result-img" src="${imageUrl}" alt="${mbti}" />
     <p>This is your personality-based NFT. You can now mint it:</p>
     <button class="btn" onclick="alert('Connect Wallet – Web3 Placeholder')">Connect Wallet</button>
     <button class="btn" onclick="alert('Mint NFT for ${mbti} – Web3 Placeholder')">Mint NFT</button>
