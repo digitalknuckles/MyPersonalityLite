@@ -1,5 +1,3 @@
-// MBTI NFT QUIZ TEMPLATE
-
 import React, { useState } from 'react';
 import { ethers } from 'ethers';
 
@@ -28,7 +26,7 @@ const questions = [
       { text: 'I enjoy being the center of attention and meeting new people', value: 'E' },
       { text: 'I value close relationships and prefer smaller gatherings', value: 'I' },
       { text: 'I thrive in social settings and love engaging with others', value: 'E' },
-      { text: 'I'm more reserved and prefer one-on-one conversations', value: 'I' },
+      { text: 'I\'m more reserved and prefer one-on-one conversations', value: 'I' },
     ]
   },
   {
@@ -70,10 +68,10 @@ const questions = [
   {
     question: 'How do you prefer to communicate your thoughts and ideas?',
     options: [
-      { text: 'I'm expressive and enjoy sharing stories and experiences', value: 'E' },
-      { text: 'I'm direct and to the point, focusing on facts and details', value: 'S' },
-      { text: 'I'm empathetic and strive to connect with others emotionally', value: 'F' },
-      { text: 'I'm analytical and prefer logical reasoning and arguments', value: 'T' },
+      { text: 'I\'m expressive and enjoy sharing stories and experiences', value: 'E' },
+      { text: 'I\'m direct and to the point, focusing on facts and details', value: 'S' },
+      { text: 'I\'m empathetic and strive to connect with others emotionally', value: 'F' },
+      { text: 'I\'m analytical and prefer logical reasoning and arguments', value: 'T' },
     ]
   },
   {
@@ -97,22 +95,22 @@ const questions = [
 ];
 
 const mbtiMap = {
-  INFP: 'ipfs://bafkreie6ug5sdcpm2k4bvflltoaoajbzlhnjgkaoec7xxciavkondlxpuu',
-  ESTJ: 'ipfs://bafkreihnphy7onvxky3qe5s2alkdg5yebu6ucol5hnnhtimzfixc6fm3ou',
-  ENFP: 'ipfs://bafkreiaoozqn4wenk4jf27opfdpyitgol3tmydtt7rvg75hyy3sgmdq54q',
-  ISTJ: 'ipfs://bafkreihjzonmbo7hpnnhfraoqmemageywzckknnf6pfj2rxskulrswsjpi',
-  ESFP: 'ipfs://bafkreifrg2zhxevplnsye5yinua77rc2gq7cjtahl4z627depocvbaj4ji',
-  ENTJ: 'ipfs://bafkreichoybhwf2fld26effabuniwvti535us4bpu3hd2qtalhrowmidd4',
-  ENFJ: 'ipfs://bafkreiaoozqn4wenk4jf27opfdpyitgol3tmydtt7rvg75hyy3sgmdq54q',
-  INTP: 'ipfs://bafkreifnn7iqsl34cyhwpnbaifu3fozrsftbvij2twdcylq2m5pi5yooim',
-  ISFJ: 'ipfs://bafkreibpzmwrg276zrvnbe4rbsvrao4yzcwtc3nyrsw4uxa66zbdsoexda',
-  INFJ: 'ipfs://bafkreif6zagfaeqprvxipkr6qhlsjgljy64fgk4lht34hvzmo5lbcdugzy',
-  ESTP: 'ipfs://bafkreicst3tt3be2alpv5brjt6biw6qxx6p22i5cbr3cq7g6nbiosimnt4',
-  ISFP: 'ipfs://bafkreif7d6rdlhlsd7vqqddups2ww2gh6yvc26bz32frgiqedrdsczjjoa',
-  INTJ: 'ipfs://bafkreiftqo6t7mgrusazmwpqjuzitiar6mud5axpk4ogit7to4uoz5zj5a',
-  ESFJ: 'ipfs://bafkreic7plwt4ebu2r6usep4z6y35xrpzsrsnbwddqlrybwa4v3jqsd47q',
-  ENTP: 'ipfs://bafkreihghgwf36pr52opkhzsiwzhqrecv37d42mout2lgit64la3642kta',
-  ISTP: 'ipfs://bafkreidbqwaiq7xztn53d52czczfz6jseggn3onm7xo227q2er5qyynpqi'
+  INFP: 'ipfs://bafkreidouwoq443wdijffua2r77rgkryzizl5zlyyxxfiykkz4tdb3y2zq',
+  ESTJ: 'ipfs://bafkreihoxbvvmwzete7d4hpfbsxwrwk66votcjezhcycn6wlknwj4mx6ra',
+  ENFP: 'ipfs://bafkreibf3sdifhgnk554k73qmdk547bk7b56ht2lypu33pqdzdx2yltbm4',
+  ISTJ: 'ipfs://bafkreieeda4noiqfhsivkrwrnvsav3mw5gnmhjauvy76bc6uxflyxxwfua',
+  ESFP: 'ipfs://bafkreiarx3vbfgx3io2x44qmmtooz5yc3lcgwuuu2y5tgurkjqt6n6es6m',
+  ENTJ: 'ipfs://bafkreidq2unj7dn552ku4guxxadxt72yaur6ibc5zuqyrijxnx5yelwrxy',
+  ENFJ: 'ipfs://bafkreic6nluli7zdrlumi47fjko2nocwxgprxgrpiwnexkfz4wfdicndum',
+  INTP: 'ipfs://bafkreiai6cret5grdblwlgzw2lzinkthz2qkfb3ie27hbwnyaqhkatxz4e',
+  ISFJ: 'ipfs://bafkreihq5hgg2dzzd4c4pnngzmlyk2qfkis5ww5on3mds7jsxtyaw7khx4',
+  INFJ: 'ipfs://bafkreifgtnhf23wyxkd6axt5mjo7b6s2mvvqle2bq6za4x7dacomoullpe',
+  ESTP: 'ipfs://bafkreigucauyhk42y2gqu425tesywrxk2mdvkyn623jy5xghsthuq7p2d4',
+  ISFP: 'ipfs://bafkreiesmw5seaeh3btvgf676bgk7lpif6gzelaky4pml2ydimdhkdqe5i',
+  INTJ: 'ipfs://bafkreigbt436bbtfuqtihdc6wiouudssfauaajosrzfjygshmsm5jkeple',
+  ESFJ: 'ipfs://bafkreialj2pi4dwdipwgdp5ufyva4w5q6ov4rykimaiyrmnf4i47h5x224',
+  ENTP: 'ipfs://bafkreie5fvoyyk5dwc2ppkeaquieomxeckbdd23o3iqkdtg7a6yuzzttim',
+  ISTP: 'ipfs://bafkreiddtzunxcbcp6iotwop7nmiyizfqmrfoif5dfdmpvs72b3iupoihu'
 };
 
 function getMBTI(score) {
@@ -126,12 +124,13 @@ export default function App() {
   const [walletConnected, setWalletConnected] = useState(false);
 
   const handleAnswer = (value) => {
-    setScore(prev => ({ ...prev, [value]: prev[value] + 1 }));
-    if (current < questions.length - 1) {
-      setCurrent(current + 1);
+    const updatedScore = { ...score, [value]: score[value] + 1 };
+    if (current === questions.length - 1) {
+      const type = getMBTI(updatedScore);
+      setMbtiType(type);
     } else {
-      const result = getMBTI({ ...score, [value]: score[value] + 1 });
-      setMbtiType(result);
+      setCurrent(current + 1);
+      setScore(updatedScore);
     }
   };
 
@@ -155,7 +154,7 @@ export default function App() {
     return (
       <div className="p-4 text-center">
         <h1 className="text-2xl font-bold">Your Personality Type: {mbtiType}</h1>
-        <img src={`https://ipfs.io/ipfs/${mbtiMap[mbtiType].split('ipfs://')[1]}`} alt={mbtiType} className="mx-auto my-4" />
+        <img src={`https://ipfs.io/ipfs/${mbtiMap[mbtiType].split('ipfs://')[1]}`} alt={mbtiType} className="mx-auto my-4 w-64" />
         {walletConnected ? (
           <button onClick={mintNFT} className="bg-green-600 text-white px-4 py-2 rounded">Mint Personality NFT</button>
         ) : (
@@ -166,14 +165,14 @@ export default function App() {
   }
 
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-semibold mb-2">{questions[current].question}</h2>
+    <div className="p-4 max-w-xl mx-auto">
+      <h2 className="text-xl font-semibold mb-4">{questions[current].question}</h2>
       <div className="space-y-2">
-        {questions[current].options.map((option, index) => (
+        {questions[current].options.map((option, idx) => (
           <button
-            key={index}
+            key={idx}
             onClick={() => handleAnswer(option.value)}
-            className="block w-full bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded"
+            className="block w-full bg-gray-100 hover:bg-gray-200 px-4 py-3 rounded text-left shadow"
           >
             {option.text}
           </button>
