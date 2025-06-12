@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MBTI Personality Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 650px;
+      background: white;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .question {
+      font-size: 1.25rem;
+      margin-bottom: 20px;
+    }
+    .option {
+      background: #e0e0e0;
+      border: none;
+      margin: 10px 0;
+      padding: 12px 20px;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .option:hover {
+      background: #d4d4d4;
+    }
+    .result-img {
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+    }
+    .btn {
+      background: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      margin: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="container" id="quiz-container">
+  <div id="quiz-content">
+    <!-- Quiz content will load here -->
+  </div>
+</div>
+
+<script>
+const questions = [
+  // E vs I
+  {
+    question: "At a social event, you:",
+    options: [
+      { text: "Enjoy being at the center of attention", value: "E" },
+      { text: "Prefer one-on-one conversations", value: "I" }
+    ]
+  },
+  {
+    question: "When it comes to recharging, you prefer:",
+    options: [
+      { text: "Spending time alone or in quiet reflection", value: "I" },
+      { text: "Engaging in social activities with friends", value: "E" }
+    ]
+  },
+  {
+    question: "When meeting new people, you are more likely to:",
+    options: [
+      { text: "Wait to be approached", value: "I" },
+      { text: "Initiate the conversation", value: "E" }
+    ]
+  },
+  // S vs N
+  {
+    question: "You are more interested in:",
+    options: [
+      { text: "Facts, details, and practical applications", value: "S" },
+      { text: "Ideas, concepts, and theories", value: "N" }
+    ]
+  },
+  {
+    question: "When remembering past experiences, you:",
+    options: [
+      { text: "Focus on specific details", value: "S" },
+      { text: "Recall the overall impression or meaning", value: "N" }
+    ]
+  },
+  {
+    question: "In planning a project, you:",
+    options: [
+      { text: "Prefer clear timelines and concrete steps", value: "S" },
+      { text: "Like to brainstorm multiple possibilities", value: "N" }
+    ]
+  },
+  // T vs F
+  {
+    question: "When making a decision, you rely more on:",
+    options: [
+      { text: "Logic and objective analysis", value: "T" },
+      { text: "Values and how it affects others", value: "F" }
+    ]
+  },
+  {
+    question: "You tend to be more:",
+    options: [
+      { text: "Firm and direct", value: "T" },
+      { text: "Compassionate and empathetic", value: "F" }
+    ]
+  },
+  {
+    question: "In a disagreement, you are more likely to:",
+    options: [
+      { text: "Seek fairness and consistency", value: "T" },
+      { text: "Preserve harmony and avoid hurting feelings", value: "F" }
+    ]
+  },
+  // J vs P
+  {
+    question: "Your workspace is usually:",
+    options: [
+      { text: "Organized and planned out", value: "J" },
+      { text: "Flexible and open-ended", value: "P" }
+    ]
+  },
+  {
+    question: "You prefer to:",
+    options: [
+      { text: "Make decisions early", value: "J" },
+      { text: "Keep options open", value: "P" }
+    ]
+  },
+  {
+    question: "When working on a deadline, you:",
+    options: [
+      { text: "Start early and stick to a plan", value: "J" },
+      { text: "Work closer to the deadline, adapting as needed", value: "P" }
+    ]
+  }
+];
+
+// Optional: Link your CIDs here
+const mbtiMap = {
+  INFP: 'bafkreidouwoq443wdijffua2r77rgkryzizl5zlyyxxfiykkz4tdb3y2zq',
+  ESTJ: 'bafkreihoxbvvmwzete7d4hpfbsxwrwk66votcjezhcycn6wlknwj4mx6ra',
+  ENFP: 'bafkreibf3sdifhgnk554k73qmdk547bk7b56ht2lypu33pqdzdx2yltbm4',
+  ISTJ: 'bafkreieeda4noiqfhsivkrwrnvsav3mw5gnmhjauvy76bc6uxflyxxwfua'
+};
+
+let current = 0;
+const score = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+const quizContent = document.getElementById('quiz-content');
+
+function showQuestion() {
+  const q = questions[current];
+  quizContent.innerHTML = `
+    <div class="question">${q.question}</div>
+    ${q.options.map(opt => `
+      <button class="option" onclick="handleAnswer('${opt.value}')">${opt.text}</button>
+    `).join('')}
+  `;
+}
+
+function handleAnswer(value) {
+  score[value]++;
+  current++;
+  if (current < questions.length) {
+    showQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function getMBTI() {
+  return (
+    (score.I > score.E ? 'I' : 'E') +
+    (score.N > score.S ? 'N' : 'S') +
+    (score.F > score.T ? 'F' : 'T') +
+    (score.P > score.J ? 'P' : 'J')
+  );
+}
+
+function showResult() {
+  const mbti = getMBTI();
+  const cid = mbtiMap[mbti] || 'QmPlaceholder';
+  quizContent.innerHTML = `
+    <h2>Your MBTI Type: ${mbti}</h2>
+    <img class="result-img" src="https://ipfs.io/ipfs/${cid}" alt="${mbti}" />
+    <p>This is your personality-based NFT. You can now mint it:</p>
+    <button class="btn" onclick="alert('Connect Wallet – Web3 Placeholder')">Connect Wallet</button>
+    <button class="btn" onclick="alert('Mint NFT for ${mbti} – Web3 Placeholder')">Mint NFT</button>
+  `;
+}
+
+// Start quiz
+showQuestion();
+</script>
+</body>
+</html>
