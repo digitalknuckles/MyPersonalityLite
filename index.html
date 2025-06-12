@@ -213,7 +213,7 @@ function getMBTI() {
 function showResult() {
   const mbti = getMBTI();
   const cid = mbtiMap[mbti];
-  const imageUrl = cid ? `https://ipfs.io/ipfs/${cid}` : 'https://via.placeholder.com/200?text=No+Image';
+  const imageUrl = cid ? `https://ipfs.io/ipfs/${cid.replace('ipfs://', '')}` : 'https://via.placeholder.com/200?text=No+Image';
 
   quizContent.innerHTML = `
     <h2>Your MBTI Type: ${mbti}</h2>
