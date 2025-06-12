@@ -12,7 +12,7 @@
       text-align: center;
     }
     .container {
-      max-width: 650px;
+      max-width: 700px;
       background: white;
       margin: auto;
       padding: 30px;
@@ -20,7 +20,7 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     .question {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       margin-bottom: 20px;
     }
     .option {
@@ -57,104 +57,103 @@
 </head>
 <body>
 <div class="container" id="quiz-container">
-  <div id="quiz-content">
-    <!-- Quiz content will load here -->
-  </div>
+  <div id="quiz-content"></div>
 </div>
 
 <script>
 const questions = [
-  // E vs I
   {
-    question: "At a social event, you:",
+    question: 'How do you typically approach new experiences and ideas?',
     options: [
-      { text: "Enjoy being at the center of attention", value: "E" },
-      { text: "Prefer one-on-one conversations", value: "I" }
+      { text: 'With enthusiasm and excitement', value: 'E' },
+      { text: 'With careful consideration and analysis', value: 'I' },
+      { text: 'With a desire for spontaneity and fun', value: 'P' },
+      { text: 'With a focus on practicality and efficiency', value: 'J' },
     ]
   },
   {
-    question: "When it comes to recharging, you prefer:",
+    question: 'How do you prefer to organize your tasks and responsibilities?',
     options: [
-      { text: "Spending time alone or in quiet reflection", value: "I" },
-      { text: "Engaging in social activities with friends", value: "E" }
+      { text: 'I prefer to have a clear plan and structure', value: 'J' },
+      { text: 'I tend to be flexible and adapt to changing situations', value: 'P' },
+      { text: 'I like to keep things open-ended and go with the flow', value: 'P' },
+      { text: 'I rely on my instincts and intuition to guide me', value: 'N' },
     ]
   },
   {
-    question: "When meeting new people, you are more likely to:",
+    question: 'How would you describe your social interactions?',
     options: [
-      { text: "Wait to be approached", value: "I" },
-      { text: "Initiate the conversation", value: "E" }
-    ]
-  },
-  // S vs N
-  {
-    question: "You are more interested in:",
-    options: [
-      { text: "Facts, details, and practical applications", value: "S" },
-      { text: "Ideas, concepts, and theories", value: "N" }
+      { text: 'I enjoy being the center of attention and meeting new people', value: 'E' },
+      { text: 'I value close relationships and prefer smaller gatherings', value: 'I' },
+      { text: 'I thrive in social settings and love engaging with others', value: 'E' },
+      { text: 'I\'m more reserved and prefer one-on-one conversations', value: 'I' },
     ]
   },
   {
-    question: "When remembering past experiences, you:",
+    question: 'How do you handle stress and pressure?',
     options: [
-      { text: "Focus on specific details", value: "S" },
-      { text: "Recall the overall impression or meaning", value: "N" }
+      { text: 'I tackle problems head-on and work towards solutions', value: 'T' },
+      { text: 'I maintain a calm demeanor and prioritize self-care', value: 'F' },
+      { text: 'I seek support from friends and loved ones', value: 'F' },
+      { text: 'I focus on finding practical solutions and staying organized', value: 'J' },
     ]
   },
   {
-    question: "In planning a project, you:",
+    question: 'What motivates you in your career or personal pursuits?',
     options: [
-      { text: "Prefer clear timelines and concrete steps", value: "S" },
-      { text: "Like to brainstorm multiple possibilities", value: "N" }
-    ]
-  },
-  // T vs F
-  {
-    question: "When making a decision, you rely more on:",
-    options: [
-      { text: "Logic and objective analysis", value: "T" },
-      { text: "Values and how it affects others", value: "F" }
+      { text: 'I strive for innovation and making a positive impact', value: 'N' },
+      { text: 'I value stability and achieving tangible results', value: 'S' },
+      { text: 'I enjoy collaborating with others and building relationships', value: 'F' },
+      { text: 'I pursue excellence and enjoy tackling challenges', value: 'T' },
     ]
   },
   {
-    question: "You tend to be more:",
+    question: 'How do you approach decision-making?',
     options: [
-      { text: "Firm and direct", value: "T" },
-      { text: "Compassionate and empathetic", value: "F" }
+      { text: 'I trust my intuition and follow my heart', value: 'F' },
+      { text: 'I gather information and weigh the pros and cons', value: 'T' },
+      { text: 'I seek advice from others and consider different perspectives', value: 'F' },
+      { text: 'I rely on logic and rationality to guide my choices', value: 'T' },
     ]
   },
   {
-    question: "In a disagreement, you are more likely to:",
+    question: 'What role do you typically play in group settings or projects?',
     options: [
-      { text: "Seek fairness and consistency", value: "T" },
-      { text: "Preserve harmony and avoid hurting feelings", value: "F" }
-    ]
-  },
-  // J vs P
-  {
-    question: "Your workspace is usually:",
-    options: [
-      { text: "Organized and planned out", value: "J" },
-      { text: "Flexible and open-ended", value: "P" }
+      { text: 'The initiator and idea generator', value: 'N' },
+      { text: 'The organizer and planner', value: 'J' },
+      { text: 'The collaborator and team player', value: 'F' },
+      { text: 'The strategist and problem solver', value: 'T' },
     ]
   },
   {
-    question: "You prefer to:",
+    question: 'How do you prefer to communicate your thoughts and ideas?',
     options: [
-      { text: "Make decisions early", value: "J" },
-      { text: "Keep options open", value: "P" }
+      { text: 'I\'m expressive and enjoy sharing stories and experiences', value: 'E' },
+      { text: 'I\'m direct and to the point, focusing on facts and details', value: 'S' },
+      { text: 'I\'m empathetic and strive to connect with others emotionally', value: 'F' },
+      { text: 'I\'m analytical and prefer logical reasoning and arguments', value: 'T' },
     ]
   },
   {
-    question: "When working on a deadline, you:",
+    question: 'What values are most important to you in your personal and professional life?',
     options: [
-      { text: "Start early and stick to a plan", value: "J" },
-      { text: "Work closer to the deadline, adapting as needed", value: "P" }
+      { text: 'Creativity, freedom, and authenticity', value: 'N' },
+      { text: 'Discipline, integrity, and responsibility', value: 'J' },
+      { text: 'Compassion, harmony, and cooperation', value: 'F' },
+      { text: 'Knowledge, competence, and independence', value: 'T' },
+    ]
+  },
+  {
+    question: 'How do you typically respond to conflicts or disagreements?',
+    options: [
+      { text: 'I seek resolution through compromise and understanding', value: 'F' },
+      { text: 'I stand my ground and defend my beliefs', value: 'T' },
+      { text: 'I avoid confrontation and strive for peace', value: 'F' },
+      { text: 'I analyze the situation and find a practical solution', value: 'T' },
     ]
   }
 ];
 
-// Optional: Link your CIDs here
 const mbtiMap = {
   INFP: 'ipfs://bafkreidouwoq443wdijffua2r77rgkryzizl5zlyyxxfiykkz4tdb3y2zq',
   ESTJ: 'ipfs://bafkreihoxbvvmwzete7d4hpfbsxwrwk66votcjezhcycn6wlknwj4mx6ra',
@@ -200,19 +199,19 @@ function handleAnswer(value) {
 
 function getMBTI() {
   return (
-    (score.I > score.E ? 'I' : 'E') +
-    (score.N > score.S ? 'N' : 'S') +
-    (score.F > score.T ? 'F' : 'T') +
-    (score.P > score.J ? 'P' : 'J')
+    (score.I >= score.E ? 'I' : 'E') +
+    (score.N >= score.S ? 'N' : 'S') +
+    (score.F >= score.T ? 'F' : 'T') +
+    (score.P >= score.J ? 'P' : 'J')
   );
 }
 
 function showResult() {
   const mbti = getMBTI();
-  const cid = mbtiMap[mbti] || 'QmPlaceholder';
+  const cid = mbtiMap[mbti] || 'ipfs://placeholder';
   quizContent.innerHTML = `
     <h2>Your MBTI Type: ${mbti}</h2>
-    <img class="result-img" src="https://ipfs.io/ipfs/${cid}" alt="${mbti}" />
+    <img class="result-img" src="${cid.replace('ipfs://', 'https://ipfs.io/ipfs/')}" alt="${mbti}" />
     <p>This is your personality-based NFT. You can now mint it:</p>
     <button class="btn" onclick="alert('Connect Wallet – Web3 Placeholder')">Connect Wallet</button>
     <button class="btn" onclick="alert('Mint NFT for ${mbti} – Web3 Placeholder')">Mint NFT</button>
