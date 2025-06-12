@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MBTI Personality Quiz</title>
+  <title>My Personality Type NFT</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -214,7 +214,7 @@ function showResult() {
   const mbti = getMBTI();
   const cid = mbtiMap[mbti] || 'ipfs://placeholder';
   quizContent.innerHTML = `
-    <h2>Your MBTI Type: ${mbti}</h2>
+    <h2>My Personality Type: ${mbti}</h2>
     <img class="result-img" src="${cid.replace('ipfs://', 'https://ipfs.io/ipfs/')}" alt="${mbti}" />
     <p>This is your personality-based NFT. You can now mint it:</p>
     <button class="btn" onclick="alert('Connect Wallet – Web3 Placeholder')">Connect Wallet</button>
