@@ -54,11 +54,35 @@
     .btn:hover {
       background: #0056b3;
     }
+    .progress-bar {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.progress-step {
+  width: 20px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.progress-step.active {
+  background-color: #007bff;
+}
+
+.progress-step.completed {
+  background-color: lightblue;
+}
+    
   </style>
 </head>
 <body>
   <div class="container" id="quiz-container">
     <div id="quiz-content"></div>
+    <div id="progress-bar" class="progress-bar"></div>
   </div>
 
 <script>
@@ -184,12 +208,15 @@ function shuffle(array) {
 function showQuestion() {
   const q = questions[current];
   const shuffledOptions = shuffle([...q.options]);
+
   quizContent.innerHTML = `
     <div class="question">${q.question}</div>
     ${shuffledOptions.map(opt => `
       <button class="option" onclick="handleAnswer('${opt.value}')">${opt.text}</button>
     `).join('')}
   `;
+
+  updateProgressBar();
 }
 
 function handleAnswer(value) {
@@ -199,6 +226,7 @@ function handleAnswer(value) {
     showQuestion();
   } else {
     showResult();
+    updateProgressBar(); // Ensure bar hides
   }
 }
 
@@ -225,6 +253,28 @@ function showResult() {
   `;
 }
 
+function updateProgressBar() {
+  const progressBar = document.getElementById('progress-bar');
+  progressBar.innerHTML = ''; // Clear previous
+
+  for (let i = 0; i < questions.length; i++) {
+    const step = document.createElement('div');
+    step.classList.add('progress-step');
+
+    if (i < current) {
+      step.classList.add('completed');
+    } else if (i === current) {
+      step.classList.add('active');
+    }
+
+    progressBar.appendChild(step);
+  }
+
+  // Hide progress bar when quiz is complete
+  if (current >= questions.length) {
+    progressBar.style.display = 'none';
+  }
+}
 // Start quiz
 showQuestion();
 </script>
