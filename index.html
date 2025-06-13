@@ -63,93 +63,93 @@
 <script>
 const questions = [
   {
-    question: 'How do you typically approach new experiences and ideas?',
+    question: "You're offered the red pill or the blue pill. What do you do?",
     options: [
-      { text: 'With enthusiasm and excitement', value: 'E' },
-      { text: 'With careful consideration and analysis', value: 'I' },
-      { text: 'With a desire for spontaneity and fun', value: 'P' },
-      { text: 'With a focus on practicality and efficiency', value: 'J' },
+      { text: "Take the red pill—curiosity killed the cat, but I’m not a cat.", value: 'N' },
+      { text: "Take the blue pill—better the devil you know than the code you don’t.", value: 'S' },
+      { text: "Flip a coin and follow the chaos.", value: 'P' },
+      { text: "Run a risk assessment and wait for patch notes.", value: 'J' }
     ]
   },
   {
-    question: 'How do you prefer to organize your tasks and responsibilities?',
+    question: "You're suddenly a contestant on a reality show called 'Project Existential Crisis.' What’s your strategy?",
     options: [
-      { text: 'I prefer to have a clear plan and structure', value: 'J' },
-      { text: 'I tend to be flexible and adapt to changing situations', value: 'P' },
-      { text: 'I like to keep things open-ended and go with the flow', value: 'P' },
-      { text: 'I rely on my instincts and intuition to guide me', value: 'N' },
+      { text: "Monologue my feelings like it’s a Netflix drama.", value: 'F' },
+      { text: "Solve every challenge with ruthless logic and a spreadsheet.", value: 'T' },
+      { text: "Start a secret alliance using charisma and memes.", value: 'E' },
+      { text: "Quietly observe and sabotage from the shadows.", value: 'I' }
     ]
   },
   {
-    question: 'How would you describe your social interactions?',
+    question: "You’re appointed captain of a starship. What's your first mission order?",
     options: [
-      { text: 'I enjoy being the center of attention and meeting new people', value: 'E' },
-      { text: 'I value close relationships and prefer smaller gatherings', value: 'I' },
-      { text: 'I thrive in social settings and love engaging with others', value: 'E' },
-      { text: 'I\'m more reserved and prefer one-on-one conversations', value: 'I' },
+      { text: "Chart a course for unknown galaxies—engage!", value: 'N' },
+      { text: "Fix the life-support system first. No breathing, no exploring.", value: 'S' },
+      { text: "Hold a crew-wide dance party to boost morale.", value: 'F' },
+      { text: "Run diagnostics, optimize fuel efficiency, then warp out.", value: 'T' }
     ]
   },
   {
-    question: 'How do you handle stress and pressure?',
+    question: "An AI tells you your reality is a simulation. Your response?",
     options: [
-      { text: 'I tackle problems head-on and work towards solutions', value: 'T' },
-      { text: 'I maintain a calm demeanor and prioritize self-care', value: 'F' },
-      { text: 'I seek support from friends and loved ones', value: 'F' },
-      { text: 'I focus on finding practical solutions and staying organized', value: 'J' },
+      { text: "Sweet. Let’s hack it and unlock God Mode.", value: 'N' },
+      { text: "Sim or not, I still gotta pay rent. Let’s keep moving.", value: 'S' },
+      { text: "Do simulated people have simulated feelings? Let’s unpack that.", value: 'F' },
+      { text: "Where’s the source code and who’s the admin?", value: 'T' }
     ]
   },
   {
-    question: 'What motivates you in your career or personal pursuits?',
+    question: "The trolley problem, but you're the trolley. Where are you headed?",
     options: [
-      { text: 'I strive for innovation and making a positive impact', value: 'N' },
-      { text: 'I value stability and achieving tangible results', value: 'S' },
-      { text: 'I enjoy collaborating with others and building relationships', value: 'F' },
-      { text: 'I pursue excellence and enjoy tackling challenges', value: 'T' },
+      { text: "Divert tracks, save lives, write a thinkpiece later.", value: 'F' },
+      { text: "Run probability calculations mid-speed.", value: 'T' },
+      { text: "Jump the rails. Nobody controls my fate.", value: 'P' },
+      { text: "Schedule a committee meeting before impact.", value: 'J' }
     ]
   },
   {
-    question: 'How do you approach decision-making?',
+    question: "Doctor Strange hands you the Time Stone. What do you do?",
     options: [
-      { text: 'I trust my intuition and follow my heart', value: 'F' },
-      { text: 'I gather information and weigh the pros and cons', value: 'T' },
-      { text: 'I seek advice from others and consider different perspectives', value: 'F' },
-      { text: 'I rely on logic and rationality to guide my choices', value: 'T' },
+      { text: "Explore infinite timelines for funsies.", value: 'E' },
+      { text: "Only use it in emergencies—power comes with responsibility.", value: 'J' },
+      { text: "Loop until I figure out how to win every argument ever.", value: 'T' },
+      { text: "Visit my childhood and give past-me a hug.", value: 'F' }
     ]
   },
   {
-    question: 'What role do you typically play in group settings or projects?',
+    question: "You’re stranded on Arrakis (Dune). What’s your first move?",
     options: [
-      { text: 'The initiator and idea generator', value: 'N' },
-      { text: 'The organizer and planner', value: 'J' },
-      { text: 'The collaborator and team player', value: 'F' },
-      { text: 'The strategist and problem solver', value: 'T' },
+      { text: "Find the Fremen, blend in, ride a sandworm.", value: 'N' },
+      { text: "Locate shelter, water, and stay alive.", value: 'S' },
+      { text: "Ask yourself if spice addiction is really that bad.", value: 'P' },
+      { text: "Draft a survival protocol and assign duties.", value: 'J' }
     ]
   },
   {
-    question: 'How do you prefer to communicate your thoughts and ideas?',
+    question: "You're recruited by The Good Place architects. Your job?",
     options: [
-      { text: 'I\'m expressive and enjoy sharing stories and experiences', value: 'E' },
-      { text: 'I\'m direct and to the point, focusing on facts and details', value: 'S' },
-      { text: 'I\'m empathetic and strive to connect with others emotionally', value: 'F' },
-      { text: 'I\'m analytical and prefer logical reasoning and arguments', value: 'T' },
+      { text: "Invent bizarre moral puzzles to confuse everyone.", value: 'T' },
+      { text: "Redesign the afterlife with better vibes and playlists.", value: 'F' },
+      { text: "Audit the karma system for inconsistencies.", value: 'J' },
+      { text: "Create chaos loops just to see what happens.", value: 'P' }
     ]
   },
   {
-    question: 'What values are most important to you in your personal and professional life?',
+    question: "How would your ideal clone describe you?",
     options: [
-      { text: 'Creativity, freedom, and authenticity', value: 'N' },
-      { text: 'Discipline, integrity, and responsibility', value: 'J' },
-      { text: 'Compassion, harmony, and cooperation', value: 'F' },
-      { text: 'Knowledge, competence, and independence', value: 'T' },
+      { text: "‘Chaotic good with a caffeine addiction’", value: 'E' },
+      { text: "‘Logically optimized for max output’", value: 'T' },
+      { text: "‘Deep thinker, cries during Pixar movies’", value: 'F' },
+      { text: "‘Quietly ruling from the shadows’", value: 'I' }
     ]
   },
   {
-    question: 'How do you typically respond to conflicts or disagreements?',
+    question: "You find a talking toaster. It gives you life advice. What do you do?",
     options: [
-      { text: 'I seek resolution through compromise and understanding', value: 'F' },
-      { text: 'I stand my ground and defend my beliefs', value: 'T' },
-      { text: 'I avoid confrontation and strive for peace', value: 'F' },
-      { text: 'I analyze the situation and find a practical solution', value: 'T' },
+      { text: "Thank it and ask follow-up questions. It’s clearly sentient.", value: 'N' },
+      { text: "Get rid of it. Talking appliances are how horror movies start.", value: 'S' },
+      { text: "Share your feelings over breakfast—it listens.", value: 'F' },
+      { text: "Ask if it accepts firmware updates and logical inputs.", value: 'T' }
     ]
   }
 ];
