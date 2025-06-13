@@ -5,6 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Personality Type NFT</title>
   <style>
+#start-screen {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  cursor: pointer;
+}
+
+#start-bg {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+.start-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+  pointer-events: none;
+}
+    
     body {
       font-family: Arial, sans-serif;
       background: url('MBTI_NFT_BG+-01.png') no-repeat center center fixed;
@@ -80,10 +106,15 @@
   </style>
 </head>
 <body>
-  <div class="container" id="quiz-container">
-    <div id="quiz-content"></div>
-    <div id="progress-bar" class="progress-bar"></div>
-  </div>
+  <div class="container" id="start-screen">
+  <img id="start-bg" src="https://ipfs.io/ipfs/bafybeicfz5jvafr6x7lqyjxkz2xwn5y565vzmlgl46hbrqjlpdcehtmjla" alt="Start Background" />
+  <div class="start-text">Tap to Start</div>
+</div>
+
+<div class="container" id="quiz-container" style="display:none;">
+  <div id="quiz-content"></div>
+  <div id="progress-bar" class="progress-bar"></div>
+</div>
 
 <script>
 const questions = [
@@ -276,7 +307,12 @@ function updateProgressBar() {
   }
 }
 // Start quiz
-showQuestion();
+  document.getElementById('start-screen').addEventListener('click', () => {
+  document.getElementById('start-screen').style.display = 'none';
+  document.getElementById('quiz-container').style.display = 'block';
+  showQuestion();
+});
+//showQuestion();
 </script>
 </body>
 </html>
