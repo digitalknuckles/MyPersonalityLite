@@ -301,38 +301,40 @@
       alert(`✅ Minted ${mbti} (#${idx}) successfully!`);
     }
 
-    function showResult() {
-      const mbti = getMBTI();
-      const cid = mbtiMap[mbti];
-      const imageUrl = cid ? `https://ipfs.io/ipfs/${cid.replace('ipfs://','')}` : '';
-      quizContent.innerHTML = `
-        <h2>Your Persona‑ID Type: ${mbti}</h2>
-        <img class="result-img" src="${imageUrl}" alt="${mbti}" />
-        <p>This is your Persona‑ID based NFT. You can now mint it:</p>
-        <button class="btn" id="connect-btn">Connect Wallet</button>
-        <button class="btn" id="mint-btn" style="display:none">Mint ${mbti}</button>
-      `;
+function showResult() {
+  const mbti = getMBTI();
+  const cid = mbtiMap[mbti];
+  const imageUrl = cid ? `https://ipfs.io/ipfs/${cid.replace('ipfs://','')}` : '';
 
-      document.getElementById('connect-btn').onclick = async () => {
-        try {
-          const addr = await connectWallet();
-          document.getElementById('connect-btn').innerText = addr.slice(0,6)+'…'+addr.slice(-4);
-          document.getElementById('connect-btn').disabled = true;
-          document.getElementById('mint-btn').style.display = 'inline-block';
-        } catch (e) {
-          alert(e.message);
-        }
-      };
+  quizContent.innerHTML = `
+    <h2>Your Persona‑ID Type: ${mbti}</h2>
+    <img class="result-img" src="${imageUrl}" alt="${mbti}" />
+    <p>This is your Persona‑ID based NFT. You can now mint it:</p>
+    <button class="btn" id="connect-btn">Connect Wallet</button>
+    <button class="btn" id="mint-btn" data-mbti="${mbti}" style="display:none">Mint ${mbti}</button>
+  `;
 
-      document.getElementById('mint-btn').onclick = async () => {
-        try {
-          await mintPersona(mbti);
-          document.getElementById('mint-btn').disabled = true;
-        } catch (e) {
-          alert(e.message);
-        }
-      };
+  document.getElementById('connect-btn').onclick = async () => {
+    try {
+      const addr = await connectWallet();
+      document.getElementById('connect-btn').innerText = addr.slice(0,6)+'…'+addr.slice(-4);
+      document.getElementById('connect-btn').disabled = true;
+      document.getElementById('mint-btn').style.display = 'inline-block';
+    } catch (e) {
+      alert(e.message);
     }
+  };
+
+  document.getElementById('mint-btn').onclick = async (e) => {
+    try {
+      const mbtiType = e.target.getAttribute('data-mbti');
+      await mintPersona(mbtiType);
+      document.getElementById('mint-btn').disabled = true;
+    } catch (e) {
+      alert(e.message);
+    }
+  };
+}
 
     // --- Start Logic ---
     document.getElementById('start-screen').onclick = () => {
