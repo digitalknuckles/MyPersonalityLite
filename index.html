@@ -109,7 +109,10 @@
 import { ethers } from "https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.esm.min.js";
 
 const nftAddress = "0x1d5B95B64E8182C16064Bf26C69ceAC9403FB8AE";
-const nftABI = ["function balanceOf(address owner) view returns (uint256)"];
+//const nftABI = ["function balanceOf(address owner) view returns (uint256)"];
+const nftABI = ["function balanceOf(address account, uint256 id) view returns (uint256)"];
+const tokenId = 1; // or the actual tokenId you are checking
+const balance = await contract.balanceOf(address, tokenId);
 const signatureMessage = "Sign this message to verify access to My Persona-ID.";
 
 function createAccessModal() {
