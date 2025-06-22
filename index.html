@@ -150,7 +150,7 @@ async function verifyWalletAccess(statusEl) {
     const address = await signer.getAddress(); // ✅ You need this
 
     statusEl.textContent = "Checking NFT ownership...";
-    const tokenId = 0; // Replace this with the actual ID of your access NFT
+    const tokenId = 1; // Replace this with the actual ID of your access NFT
     const contract = new ethers.Contract(nftAddress, nftABI, provider);
     const balance = await contract.balanceOf(address, tokenId); // ✅ Use the declared address here
 
